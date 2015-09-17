@@ -8,6 +8,7 @@ using UnityEngine.UI;
 public class cilindro : MonoBehaviour {
 
 	public CanvasGroup abc;
+	float active = false;
 
 	void Start () {
 		StartCoroutine (underConstructoin (1));
@@ -15,8 +16,14 @@ public class cilindro : MonoBehaviour {
 
 	void Update () {
 		//showUI ();
+		if(active){
+			shootEnemy();
+		}
 	}
 
+	public void shootEnemy(){
+		
+	}
 	public void showUI(){
 		if (Input.GetMouseButtonDown (0)) {
 			
@@ -38,5 +45,6 @@ public class cilindro : MonoBehaviour {
 		gameObject.GetComponent<Renderer> ().material.color = Color.yellow;
 		yield return new WaitForSeconds (wTime);
 		gameObject.GetComponent<Renderer> ().material.color = Color.blue;
+		active = true;
 	}
 }
